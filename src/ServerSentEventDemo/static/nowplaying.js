@@ -3,14 +3,14 @@
 function nowPlayingItem(channelNowPlaying) {
     switch (channelNowPlaying.nowPlayingItem.type) {
         case "music":
-            return p({}, 
+            return div({}, 
                 [ img("music.svg", "Music element")
                 , text(channelNowPlaying.nowPlayingItem.artist)
                 , text (" – ")
                 , i({}, [text(channelNowPlaying.nowPlayingItem.songTitle)])
                 ]);    
         case "editorial":
-            return p({},
+            return div({},
                 [ img("editorial.svg", "Editorial element")
                     , text(channelNowPlaying.nowPlayingItem.text)
                 ]);
@@ -19,9 +19,11 @@ function nowPlayingItem(channelNowPlaying) {
 
 function channelCard(channelNowPlaying) {
     return article({id: "channel-"+channelNowPlaying.radioChannel}, 
-        [ h2(channelNowPlaying.radioChannel.toUpperCase())
-        , b({},[text(channelNowPlaying.radioProgram.title)])
-        , nowPlayingItem(channelNowPlaying) 
+        [ div({}, [h2(channelNowPlaying.radioChannel.toUpperCase())])
+        , div({class: "nowplaying"}, 
+            [ b({},[text(channelNowPlaying.radioProgram.title)])
+            , nowPlayingItem(channelNowPlaying) 
+            ])            
         ]
     )
 }

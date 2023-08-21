@@ -39,6 +39,6 @@ function b (args, subelem) {
 function i (args, subelem) {
     return containerElement('i', args, subelem);
 }
-function p (args, subelem) {
-    return containerElement('p', args, subelem);
+function span (args, subelem) {
+    return containerElement('span', args, subelem);
 }
