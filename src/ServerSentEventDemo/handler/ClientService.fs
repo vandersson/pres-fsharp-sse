@@ -47,3 +47,5 @@ type ClientService(dummyData: DummyDataService) =
         let msg = createMsg NowPlaying event
         connectedClients.Values |> Seq.iter (fun c -> c.sendSSEMsg msg)
     
+    member this.terminate () =
+        connectedClients.Values |> Seq.iter (fun c -> c.CloseConnection())

@@ -1,0 +1,35 @@
+body {
+    margin-left: 1em;
+    background-color: rgb(10, 35, 67);
+    color: rgb(255, 255, 255);
+    font-size: x-large;
+    font-family: "LFT Etica", sans-serif;
+}
+
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.channel-list article {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 1em;
+    border-radius: 4px;
+    background-color: rgb(139, 181, 235);
+}
+
+.channel-list article.highlighted {
+    color: rgb(255, 255, 255);
+    background-color: rgb(12, 54, 108);
+    transition: all 2000ms linear;
+}
+
+.channel-list article p img {
+    height: 1em;
+    vertical-align: middle;
+    filter: invert(100%) sepia(100%) saturate(38%) hue-rotate(254deg) brightness(110%) contrast(110%);
+    margin-right: 5px;
+}
+
