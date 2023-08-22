@@ -28,11 +28,9 @@ function channelCard(channelNowPlaying) {
     )
 }
 
-function handleNowPlayngEvent(event) {
+function handleNowPlayingEvent(event) {
     let channelListElem = document.getElementById("channel-list");
     let msg = JSON.parse(event.data);
-    
-        
     
     let newElem = channelCard(msg);
     let existingElem = document.getElementById("channel-"+msg.radioChannel);
@@ -45,8 +43,10 @@ function handleNowPlayngEvent(event) {
     console.log(msg);
 }
 
+
+
 const eventSource = new EventSource("/nowplaying");
 
-eventSource.addEventListener("nowplaying", handleNowPlayngEvent);
+eventSource.addEventListener("nowplaying", handleNowPlayingEvent);
 
-
+eventSource.onerror = (event) => console.error("Event Source error: ", event)
