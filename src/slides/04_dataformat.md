@@ -22,12 +22,12 @@ events are separated by a newline
 
 ```
 event: nowplaying
-data: wowow
+data: {"channel": "p1", "program": "nitimen"}
 id: 120921e7-2707-471f-9862-1fd154398692
 retry: 500
 
 event: nowplaying
-data: wowow
+data: {"channel": "p13", "program": "transmission"}
 id: 82a3e08a-8ac4-4aa5-8808-83fabe241256
 retry: 500
 

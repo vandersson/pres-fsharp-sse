@@ -23,7 +23,7 @@ let api (services: Services) =
                 route "/" >=> text "pong"
                 route "/nowplaying" >=>
                     choose [
-                        mustAccept ["application/json"] >=> NowPlayingHandler.nowPlayingJson services.clientService services.dummyDataService
+                        mustAccept ["application/json"] >=> NowPlayingHandler.nowPlayingJson services.dummyDataService
                         mustAccept ["text/event-stream"] >=> NowPlayingHandler.nowPlayingEventStream services.clientService 
                     ]
             ]

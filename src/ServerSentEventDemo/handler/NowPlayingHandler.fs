@@ -8,7 +8,7 @@ open ServerSentEventDemo.ClientService
 open Giraffe
 open ServerSentEventDemo.DataGen
 
-let nowPlayingJson (clientService: ClientService) (dummyDataService: DummyDataService): HttpHandler =
+let nowPlayingJson (dummyDataService: DummyDataService): HttpHandler =
     handleContext(fun ctx ->
         task {
             return! ctx.WriteJsonAsync <| dummyDataService.NowPlaying().Values
@@ -28,7 +28,5 @@ let nowPlayingEventStream (clientService: ClientService): HttpHandler =
             
             clientService.disconnectClient clientId
             return! next ctx
-            
-            
         }
 

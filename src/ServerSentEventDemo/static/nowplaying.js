@@ -29,14 +29,14 @@ function channelCard(channelNowPlaying) {
 }
 
 function handleNowPlayingEvent(event) {
-    let channelListElem = document.getElementById("channel-list");
     let msg = JSON.parse(event.data);
-    
+
     let newElem = channelCard(msg);
     let existingElem = document.getElementById("channel-"+msg.radioChannel);
     if (existingElem) {
         existingElem.replaceWith(newElem);
     } else {
+        let channelListElem = document.getElementById("channel-list");
         channelListElem.appendChild(newElem);
     }
     setTimeout(() => newElem.classList.add("highlighted"), 1000);

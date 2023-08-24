@@ -8,7 +8,7 @@ type Msg =
     | Msg of byte[]
     | Close
     
-type ClientConnection(response: HttpResponse, token: CancellationToken) = // todo bare response body inn?
+type ClientConnection(response: HttpResponse, token: CancellationToken) =
     
     let mailbox = MailboxProcessor.Start(fun (inbox: MailboxProcessor<Msg>) ->
         let rec loop state =
