@@ -1,4 +1,4 @@
-# What are Server-Sent Event?
+# What are Server-Sent Events?
 
 - Send messages from the server to the client
 - Content-Type: text/event-stream
