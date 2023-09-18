@@ -1,7 +1,5 @@
 module ServerSentEventDemo.NowPlayingHandler
 
-open System
-open System.Threading.Tasks
 open Microsoft.AspNetCore.Http
 open ServerSentEventDemo.ClientConnection
 open ServerSentEventDemo.ClientService
@@ -18,7 +16,6 @@ let nowPlayingJson (dummyDataService: DummyDataService): HttpHandler =
 let nowPlayingEventStream (clientService: ClientService): HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
         task {
-            do! Task.Yield()
             ctx.Response.ContentType <- "text/event-stream" 
             
             use conn = new ClientConnection(ctx.Response, ctx.RequestAborted)
